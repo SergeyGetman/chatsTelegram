@@ -1,19 +1,96 @@
 body {
-    background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(32, 62, 196, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+    background: linear-gradient(rgb(240, 140, 140), #290d3f) 100% 100%;
 }
 
-.form {
-    position: absolute;
+form,
+p,
+span {
+    margin: 0;
+    padding: 0px 23px;
 }
 
-.form__up {
-    font-size: 100px;
+input {
+    font: 12px arial;
+    height: 35px;
+    width: 90px;
+    cursor: pointer;
+    transition: all 0.5s ease 0.2s;
+    background: rgb(199, 141, 141);
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 20px;
 }
 
-.form__down {
-    font-size: 100px;
+input:hover {
+    background-color: rgb(75, 187, 221);
 }
 
-textarea {
-    overflow: scroll;
+a {
+    color: #cdee11;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#wrapper,
+#loginform {
+    margin: 0 auto;
+    padding-bottom: 25px;
+    background: #2e84c5;
+    width: 504px;
+    border: 1px solid #290d3f;
+}
+
+#loginform {
+    padding-top: 18px;
+}
+
+#loginform p {
+    margin: 5px;
+}
+
+#chatbox {
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 10px;
+    background: rgb(207, 200, 200);
+    height: 550px;
+    width: 430px;
+    border: 3px solid #e65224;
+    overflow: auto;
+}
+
+#usermsg {
+    width: 355px;
+    height: 30px;
+    border: 1px solid #ACD8F0;
+    border-radius: 10px;
+}
+
+#submit {
+    width: 60px;
+}
+
+.error {
+    color: #ff0000;
+}
+
+#menu {
+    padding: 12.5px 25px 12.5px 25px;
+}
+
+.welcome {
+    float: left;
+}
+
+.logout {
+    float: right;
+}
+
+.msgln {
+    margin: 0 0 2px 0;
 }
