@@ -15,11 +15,12 @@ input {
     width: 90px;
     cursor: pointer;
     transition: all 0.5s ease 0.2s;
-    background: rgb(199, 141, 141);
+    background: rgb(211, 28, 28);
     color: white;
     border-radius: 10px;
     font-weight: 500;
     font-size: 20px;
+    outline: none;
 }
 
 input:hover {
@@ -27,8 +28,10 @@ input:hover {
 }
 
 a {
-    color: #cdee11;
+    background-color: black;
+    color: white;
     text-decoration: none;
+    border-radius: 10px;
 }
 
 a:hover {
@@ -42,6 +45,7 @@ a:hover {
     background: #2e84c5;
     width: 504px;
     border: 1px solid #290d3f;
+    border-radius: 30px;
 }
 
 #loginform {
@@ -57,14 +61,14 @@ a:hover {
     margin: 0 auto;
     margin-bottom: 25px;
     padding: 10px;
-    background: rgb(207, 200, 200);
+    background: rgb(196, 190, 190);
     height: 550px;
     width: 430px;
     border: 3px solid #e65224;
     overflow: auto;
 }
 
-#usermsg {
+#form input[name="usermsg"] {
     width: 355px;
     height: 30px;
     border: 1px solid #ACD8F0;
@@ -85,6 +89,9 @@ a:hover {
 
 .welcome {
     float: left;
+    background-color: #070707;
+    border-radius: 10px;
+    color: white;
 }
 
 .logout {
