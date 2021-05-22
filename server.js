@@ -27,23 +27,24 @@ let messageBase = []; // внутреннее хранилище сообщен�
 
 app.post('/send', (request, response) => { // AДРЕСС НА КОТОРЫЙ ШЛЮТСЯ СООБЩЕНИЯ С ФРОНТА 
 
-    let userName = request.socket.remoteAddress;
+    let userName = request.socket.remoteAddress; //получение инициализированного ip
 
-    if (userName === '::1') {
+    if (userName === '::1') { // проверка и перезапись имём в чате
         userName = "Admin"
     } else {
-        userName = "User (" + userName.split('.').pop() + ')'
+        userName = "User (" + userName.split('.').pop() + ')' // удаляем последний элемент с массива 
+            //и возвращаем его
     }
 
     messageBase.push({ // добавляем данные который приходят, в массив messageBase
-        user: userName, // выводим 
+        user: userName,
         message: request.body
     });
     console.log(messageBase);
 });
 
 app.get('/get-messages', (request, response) => { // Aдресс на который отсылаются сообщения 
-    response.send(messageBase)
+    response.send(messageBase) //отправляем мы с backend на фронт( которая в функции renderMessageFromServer запросила)
 })
 
 async function startServer() {
