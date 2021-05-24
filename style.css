@@ -101,3 +101,30 @@ a:hover {
 .msgln {
     margin: 0 0 2px 0;
 }
+
+.message {
+    background-color: #287cb3;
+    text-align: left;
+    margin: 10px 50% 0 0;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.message.admin {
+    color: blanchedalmond;
+    color: #eee957;
+    margin: 10px 0 0 50%;
+}
+
+.message .user-name {
+    color: rgb(240, 233, 233);
+    margin-right: 50%;
+}
+
+.message .text {
+    font-size: 28px;
+}
+
+.message b {}
+
+.message .user-name {}

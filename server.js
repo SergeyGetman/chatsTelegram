@@ -1,7 +1,7 @@
 const expres = require('express'); // подключаем express методом require 
 const path = require('path'); // подключаем путь с пути 
-const absolutePath = path.resolve(__dirname);
-const bodyParser = require('body-parser');
+const absolutePath = path.resolve(__dirname); //абсолютный путь
+const bodyParser = require('body-parser'); //извлечение модулем body-parser HTTP post
 
 
 
@@ -23,7 +23,10 @@ app.get("/app.js", (req, res) => { //получаю файл js, методом 
     res.sendFile(`${absolutePath}/app.js`)
 })
 
+
+
 let messageBase = []; // внутреннее хранилище сообщений 
+
 
 app.post('/send', (request, response) => { // AДРЕСС НА КОТОРЫЙ ШЛЮТСЯ СООБЩЕНИЯ С ФРОНТА 
 
@@ -38,7 +41,8 @@ app.post('/send', (request, response) => { // AДРЕСС НА КОТОРЫЙ Ш
 
     messageBase.push({ // добавляем данные который приходят, в массив messageBase
         user: userName,
-        message: request.body
+        message: request.body,
+        timestamp: +new Date()
     });
     console.log(messageBase);
 });
