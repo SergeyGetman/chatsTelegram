@@ -1,5 +1,5 @@
 let form = document.querySelector("#form");
-
+const myWs = new WebSocket(`ws://${location.hostname}:9000`);
 const { usermsg } = form;
 const chatbox = document.getElementById('chatbox')
 
@@ -10,7 +10,7 @@ function getDate(timeFromBack) {
     let date = new Date(timeFromBack); //получаем форму с датой
     let minutes = date.getMinutes(); // получаем минуты 
     let hours = date.getHours(); // получаем часы
-
+    //проверка времени если цифра без ноля
     minutes = minutes < 10 ? "0" + minutes : minutes;
     hours = hours < 10 ? "0" + hours : hours;
     return `${hours}:${minutes}`;
@@ -46,19 +46,17 @@ function sendMessage(e) {
 
 form.addEventListener("submit", sendMessage); // отправка 
 
+
 // отправка на сервер методом POST
 async function sendToServer(message) {
-    await fetch("/send", {
-        method: "POST",
-        body: message
-    })
+    myWs.send(message);
 }
 
 //каждые 2 секунды обновляем отрисовку
-setInterval(renderMessageFromServer, 2000);
 renderMessageFromServer(); //вызов функции чтобы отрисовка произошла сразу 
 
-let messageLength = 0;
+
+let messageLength = 0
 
 //отрисовка на фронте прилетевших с неё данных
 function renderMessageFromServer() {
