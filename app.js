@@ -1,6 +1,8 @@
 let form = document.querySelector("#form");
 const myWs = new WebSocket(`ws://${location.hostname}:9000`);
-const { usermsg } = form;
+const {
+    usermsg
+} = form;
 const chatbox = document.getElementById('chatbox')
 
 
@@ -52,7 +54,6 @@ async function sendToServer(message) {
     myWs.send(message);
 }
 
-//каждые 2 секунды обновляем отрисовку
 renderMessageFromServer(); //вызов функции чтобы отрисовка произошла сразу 
 
 
@@ -60,15 +61,29 @@ let messageLength = 0
 
 //отрисовка на фронте прилетевших с неё данных
 function renderMessageFromServer() {
-    fetch('/get-messages', { method: "GET" }).then((response) => {
+    fetch('/get-messages', {
+        method: "GET"
+    }).then((response) => {
         return response.json()
     }).then(messages => {
         if (messageLength < messages.length) { // проверка на отрисовку сразу после следующего сообщения 
             chatbox.innerHTML = "";
             messages.forEach(message => renderMessage(message.user, message.message, message.timestamp));
         }
-
         messageLength = messages.length;
-    })
 
+    })
 }
+// сколько человек онлайн
+function renderUserOnline() {
+    fetch("/count-users").then((response) => {
+        response.text().then(c => document.querySelector("#user-count").innerHTML = c);
+    })
+}
+
+renderUserOnline();
+
+myWs.onmessage = function(event) {
+    let messageObjec = JSON.parse(event.data);
+    renderMessage(messageObjec.user, messageObjec.message, messageObjec.timestamp);
+};
