@@ -4,6 +4,7 @@ const {
     usermsg
 } = form;
 const chatbox = document.getElementById('chatbox')
+let audio = new Audio("wavs/beep.mp3");
 
 
 //функция получения текущей даты 
@@ -27,9 +28,20 @@ function renderMessage(nameUser, textMessage, time) {
        <div class="user-name"><b>${nameUser} ${ getDate(time)}</b> </div>
       <div class="text">  ${textMessage} </div>
     </div>`;
+
     //поле ввода при добавленнии сообщения ползунок опускается в самый низ 
     chatbox.scrollTop = chatbox.scrollHeight
+    audio.play();
 }
+
+
+
+
+
+
+
+
+
 
 function sendMessage(e) {
     e.preventDefault();

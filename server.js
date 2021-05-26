@@ -20,6 +20,12 @@ app.get(/\w+\.(css|js|html)|^\/$/, (req, res) => {
     res.sendFile(absolutePath + req.path);
 })
 
+//получаем файлы с node.js 
+app.get(/\w+\.(mp3|wav)|^\/$/, (req, res) => {
+    res.sendFile(absolutePath + req.path);
+})
+
+
 let messageBase = []; // внутреннее хранилище сообщений 
 
 
@@ -56,7 +62,7 @@ function onConnect(wsClient) {
     console.log('Новый пользователь');
 
 
-    wsClient.on('close', function() {
+    wsClient.on('close', function hui() {
         delete users[wsClient._socket.remoteAddress];
         console.log('Пользователь отключился');
     });
@@ -73,8 +79,8 @@ function onConnect(wsClient) {
 
         const messageObject = { // добавляем данные который приходят, в массив messageBase
             user: userName,
-            'message': message,
-            timestamp: +new Date()
+            message: message,
+            timestamp: +new Date(),
         }
 
         messageBase.push(messageObject);
@@ -88,7 +94,6 @@ function onConnect(wsClient) {
     });
 
 }
-
 
 //отсылаем количество юзеров на сайте на фронт
 app.get("/count-users", (req, res) => {
