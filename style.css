@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgb(240, 140, 140), #290d3f) 100% 100%;
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
 }
 
 form,
@@ -15,7 +15,7 @@ input {
     width: 90px;
     cursor: pointer;
     transition: all 0.5s ease 0.2s;
-    background: rgb(195 182 182);
+    background: rgb(227 236 242);
     color: rgb(14, 13, 13);
     border-radius: 10px;
     font-weight: 500;
@@ -24,7 +24,7 @@ input {
 }
 
 input:hover {
-    background-color: rgb(218, 153, 153);
+    background-color: rgb(86, 227, 126);
 }
 
 a {
@@ -40,12 +40,13 @@ a:hover {
 
 #wrapper,
 #loginform {
-    margin: 0 auto;
+    margin: 200px 500px;
     padding-bottom: 25px;
-    background: #2e84c5;
-    width: 504px;
-    border: 1px solid #290d3f;
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    width: 700px;
+    border: 1px solid #100f0f;
     border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,1)
 }
 
 #loginform {
@@ -61,18 +62,21 @@ a:hover {
     margin: 0 auto;
     margin-bottom: 25px;
     padding: 10px;
-    background: rgb(196, 190, 190);
+    background: rgb(227 236 242);
     height: 550px;
-    width: 430px;
-    border: 3px solid #e65224;
+    width: 90%;
+    border: 3px solid #16ce16;
     overflow: auto;
+    box-shadow: 3px 3px #3bea14, -1em 0 .4em #28d7d7;
 }
 
 #form input[name="usermsg"] {
-    width: 355px;
+    width: 550px;
     height: 30px;
     border: 1px solid #ACD8F0;
     border-radius: 10px;
+    background: rgb(227 236 242);
+    box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 #submit {
